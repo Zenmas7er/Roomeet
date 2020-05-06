@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content= 
+            "width=device-width, initial-scale=1.0"> 
+    
+    <title>
+		Draw with the mouse in a HTML5 canvas 
+	</title> 
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head> 
+
+<body> 
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Logo</a>
+        <ul class="navbar-nav">
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Pencil
+                </a>
+
+                <div class="dropdown-menu">
+                    <div class="form-check">
+                        <label class="form-check-label" for="radio1">
+                            <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked> Dot
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label" for="radio2">
+                            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2"> Chisel
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label" for="radio2">
+                            <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3"> Eraser
+                        </label>
+                    </div>
+                    <div class="slidecontainer">
+                        <p>Tip Size</p>
+                        <input type="range" id = "tipsize" min="1" max="20" value="10">
+                    </div>
+                </div>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Color
+                </a>
+
+                <div class="dropdown-menu">
+                    <div class="slidecontainer">
+                        <p>Red:</p>
+                        <input type="range" id = "red" min="0" max="255" step="1">
+                        
+                        <p>Green:</p>
+                        <input type="range" id = "green" min="0" max="255" step="1">
+
+                        <p>Blue:</p>
+                        <input type="range" id = "blue" min="0" max="255" step="1">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    
+	<canvas id="canvas"></canvas> 
+    <script src="index.js"></script>
+    
+         <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<title> 
+    
+</body> 
+
+</html> 

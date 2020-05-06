@@ -46,14 +46,17 @@ function stopPainting(){
 paint = false; 
 }
 
-function componentToHex(c) {
-    var hex = c.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
-}
+// function componentToHex(c) {
+//     var hex = c.toString(16);
+//     return hex.length == 1 ? "0" + hex : hex;
+// }
   
-function rgbToHex(r, g, b) {
-    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-}
+// function rgbToHex(r, g, b) {
+//     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+// }
+
+// Alert test to see what hexadecimal color is coming out
+alert( tx.strokeStyle = getRGB(document.getElementById('red').value, document.getElementById('green').value, document.getElementById('blue')));
 	
 function sketch(event){ 
 if (!paint) return; 
@@ -64,21 +67,21 @@ ctx.beginPath();
 if (document.getElementById('radio1').checked) {
     rate_value = document.getElementById('radio1').value;
     ctx.lineCap = 'round';
-    ctx.strokeStyle = rgbToHex(document.getElementById('red').value, document.getElementById('green').value, document.getElementById('blue').value);
+    ctx.strokeStyle = RGBColour(document.getElementById('red').value, document.getElementById('green').value, document.getElementById('blue').value);
     ctx.lineWidth = document.getElementById('tipsize').value;   
 }
 
 if (document.getElementById('radio2').checked) {
     rate_value = document.getElementById('radio2').value;
     ctx.lineCap = 'square';
-    ctx.strokeStyle = rgbToHex(document.getElementById('red').value, document.getElementById('green').value, document.getElementById('blue').value);
+    ctx.strokeStyle = RGBColour(document.getElementById('red').value, document.getElementById('green').value, document.getElementById('blue').value);
     ctx.lineWidth = document.getElementById('tipsize').value;   
 }
 
 if (document.getElementById('radio3').checked) {
     rate_value = document.getElementById('radio3').value;
     ctx.strokeStyle = 'White';
-    ctx.lineWidth = document.getElementById('tipsize').value;   
+    ctx.lineWidth = 2 * document.getElementById('tipsize').value;   
 }
 	
 // The cursor to start drawing 

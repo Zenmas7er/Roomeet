@@ -67,14 +67,14 @@ ctx.beginPath();
 if (document.getElementById('radio1').checked) {
     rate_value = document.getElementById('radio1').value;
     ctx.lineCap = 'round';
-    ctx.strokeStyle = RGBColour(document.getElementById('red').value, document.getElementById('green').value, document.getElementById('blue').value);
+    ctx.strokeStyle = 'rgb(' + document.getElementById('red').value + ',' + document.getElementById('green').value + ',' + document.getElementById('blue').value +')';
     ctx.lineWidth = document.getElementById('tipsize').value;   
 }
 
 if (document.getElementById('radio2').checked) {
     rate_value = document.getElementById('radio2').value;
     ctx.lineCap = 'square';
-    ctx.strokeStyle = RGBColour(document.getElementById('red').value, document.getElementById('green').value, document.getElementById('blue').value);
+    ctx.strokeStyle = 'rgb(' + document.getElementById('red').value + ',' + document.getElementById('green').value + ',' + document.getElementById('blue').value +')';
     ctx.lineWidth = document.getElementById('tipsize').value;   
 }
 

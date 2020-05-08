@@ -94,11 +94,7 @@ function sketch(event){
         rate_value = document.getElementById('radio4').value;
         ctx.strokeStyle = 'rgb(' + document.getElementById('red').value + ',' + document.getElementById('green').value + ',' + document.getElementById('blue').value +')';
         ctx.lineWidth = document.getElementById('tipsize').value;
-        
-        // var width = coord.x - StartX;
-        // var height = coord.y - StartY;
 
-        // ctx.strokeRect(coord.x, coord.y, width, height);
     }
         
     // The cursor to start drawing 

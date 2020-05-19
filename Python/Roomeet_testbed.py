@@ -5,7 +5,7 @@ from kivy.uix.button import Button
 from kivy.uix.colorpicker import ColorPicker
 from kivy.graphics import Color, Line
 from kivy.properties import ListProperty
-col = [0, 0, 1, 1]
+col = [1, 1, 1, 1]
 
 class SelectedColor(Widget):
     selected_color = ListProperty(col)
@@ -20,20 +20,26 @@ class MyPaintWidget(Widget):
     selected_color = ListProperty(col)
     def select_ColPckr(self,*args):
         ColPopup().open()
+    def select_Clear(self):
+        saved = self.children[:]
+        self.clear_widgets()
+        self.canvas.clear()
+        for widget in saved:
+            self.add_widget(widget)
     def on_touch_down(self, touch):
-        if touch.x <100 and touch.y < 100:
-                return super(MyPaintWidget, self).on_touch_down(touch)
+        if touch.x < 300 and touch.y < 100:
+            return super(MyPaintWidget, self).on_touch_down(touch)
         with self.canvas:
             sce = SelectedColor()
             sce.selected_color = self.selected_color
             sce.center = touch.pos
             self.add_widget(sce)
 
-            touch.ud['line'] = Line(points=(touch.x, touch.y))
+            touch.ud['line'] = Line(points=(touch.x, touch.y), width=2)
 
     def on_touch_move(self, touch):
-        touch.ud['line'].points += [touch.x, touch.y]
-
+        if 'line' in touch.ud:
+            touch.ud['line'].points += [touch.x, touch.y]
 
 class MyPaintApp(App):
     def build(self):

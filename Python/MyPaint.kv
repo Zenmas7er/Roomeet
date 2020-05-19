@@ -24,13 +24,38 @@
     size: root.size
     canvas:
         Color:
-            rgb: 1,1,1
+            rgb: 0,0,0
         Rectangle:
             size: self.size
             pos: self.pos
     Button:
         size_hint: None, None
-        size: 100,100
+        size: 100,25
         pos: 0,0
         text: 'Color Select'
         on_press: root.select_ColPckr(*args)
+    Button:
+        size_hint: None, None
+        size: 100,25
+        pos: 100,0
+        text: 'Clear'
+        on_release: root.select_Clear()
+    Label:
+        id: penSize
+        font_size: '12sp'
+        pos: 25, 0
+        text: 'Pen Size'
+        color: 1, 1, 1, 1
+    Slider:
+        orientation: 'horizontal'
+        pos: 25, 25
+        min: 2
+        max: 20
+        value: 2
+        on_value: penSizeValue.text = str(int(self.value))
+    Label:
+        id: penSizeValue
+        font_size: '12sp'
+        pos: 80,25
+        text: '2'
+        color: 1,1,1,1

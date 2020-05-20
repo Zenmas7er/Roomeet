@@ -22,6 +22,7 @@
 
 <MyPaintWidget>:
     size: root.size
+    penSlider: penSlider
     canvas:
         Color:
             rgb: 0,0,0
@@ -47,15 +48,15 @@
         text: 'Pen Size'
         color: 1, 1, 1, 1
     Slider:
+        id: penSlider
         orientation: 'horizontal'
         pos: 25, 25
         min: 2
         max: 20
         value: 2
-        on_value: penSizeValue.text = str(int(self.value))
     Label:
         id: penSizeValue
         font_size: '12sp'
         pos: 80,25
-        text: '2'
+        text: str(int(penSlider.value))
         color: 1,1,1,1

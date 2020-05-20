@@ -4,7 +4,7 @@ from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 from kivy.uix.colorpicker import ColorPicker
 from kivy.graphics import Color, Line
-from kivy.properties import ListProperty
+from kivy.properties import ListProperty, ObjectProperty
 col = [1, 1, 1, 1]
 
 class SelectedColor(Widget):
@@ -17,6 +17,7 @@ class ColPopup(Popup):
     pass
 
 class MyPaintWidget(Widget):
+    penSlider = ObjectProperty(None)
     selected_color = ListProperty(col)
     def select_ColPckr(self,*args):
         ColPopup().open()
@@ -35,7 +36,8 @@ class MyPaintWidget(Widget):
             sce.center = touch.pos
             self.add_widget(sce)
 
-            touch.ud['line'] = Line(points=(touch.x, touch.y), width=2)
+            touch.ud['line'] = Line(points=(touch.x, touch.y),
+                                    width=int(self.penSlider.value))
 
     def on_touch_move(self, touch):
         if 'line' in touch.ud:

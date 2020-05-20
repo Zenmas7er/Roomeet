@@ -41,6 +41,12 @@
         pos: 100,0
         text: 'Clear'
         on_release: root.select_Clear()
+    Button:
+        size_hint: None, None
+        size: 100,25
+        pos: 200,0
+        text:'Export to .png'
+        on_release: root.select_savePNG()
     Label:
         id: penSize
         font_size: '12sp'

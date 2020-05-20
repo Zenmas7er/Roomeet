@@ -19,14 +19,17 @@ class ColPopup(Popup):
 class MyPaintWidget(Widget):
     penSlider = ObjectProperty(None)
     selected_color = ListProperty(col)
+    
     def select_ColPckr(self,*args):
         ColPopup().open()
+    
     def select_Clear(self):
         saved = self.children[:]
         self.clear_widgets()
         self.canvas.clear()
         for widget in saved:
             self.add_widget(widget)
+    
     def on_touch_down(self, touch):
         if touch.x < 300 and touch.y < 100:
             return super(MyPaintWidget, self).on_touch_down(touch)
@@ -42,6 +45,9 @@ class MyPaintWidget(Widget):
     def on_touch_move(self, touch):
         if 'line' in touch.ud:
             touch.ud['line'].points += [touch.x, touch.y]
+
+    def select_savePNG(self):
+        self.export_to_png('blackboard.png')
 
 class MyPaintApp(App):
     def build(self):

@@ -23,9 +23,10 @@
 <MyPaintWidget>:
     size: root.size
     penSlider: penSlider
+    fileName: fileName
     canvas:
         Color:
-            rgb: 0, 0, 0
+            rgb: 0, 0, 0, 1
         Rectangle:
             size: self.size
             pos: self.pos
@@ -58,7 +59,7 @@
         font_size: '12sp'
         pos: 25, 0
         text: 'Pen Size'
-        color: 1, 1, 1, 1
+        color: 0, 0, 1, 1
     Slider:
         id: penSlider
         orientation: 'horizontal'
@@ -71,7 +72,7 @@
         font_size: '11sp'
         pos: 100, 25
         text: str(int(penSlider.value))
-        color: 1, 1, 1, 1
+        color: 0, 0, 1, 1
     TextInput:
         id: fileName
         pos: 300, 30

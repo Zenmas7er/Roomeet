@@ -5,7 +5,7 @@ from kivy.uix.button import Button
 from kivy.uix.colorpicker import ColorPicker
 from kivy.graphics import Color, Line
 from kivy.properties import ListProperty, ObjectProperty
-col = [1, 1, 1, 1]
+col = [0, 0, 1, 1]
 
 class SelectedColor(Widget):
     selected_color = ListProperty(col)
@@ -31,7 +31,7 @@ class MyPaintWidget(Widget):
             self.add_widget(widget)
     
     def on_touch_down(self, touch):
-        if touch.x < 300 and touch.y < 100:
+        if touch.x < 400 and touch.y < 200:
             return super(MyPaintWidget, self).on_touch_down(touch)
         with self.canvas:
             sce = SelectedColor()
@@ -47,7 +47,8 @@ class MyPaintWidget(Widget):
             touch.ud['line'].points += [touch.x, touch.y]
 
     def select_savePNG(self):
-        self.export_to_png('blackboard.png')
+        text = self.ids.fileName.text
+        self.export_to_png(text + '.png')
 
 class MyPaintApp(App):
     def build(self):

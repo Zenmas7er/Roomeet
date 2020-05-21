@@ -1,7 +1,7 @@
 # MyPaint.kv
 
 <SelectedColor>:
-    size: 25,25
+    size: 25, 25
     canvas:
         Color:
             rgba: self.selected_color
@@ -9,7 +9,7 @@
 <ColPopup>:
     title: 'Color Select'
     size_hint: None, None
-    size: 400,400
+    size: 400, 400
     auto_dismiss: False
     ColPckr:
         on_color: app.root.selected_color = self.color
@@ -25,26 +25,32 @@
     penSlider: penSlider
     canvas:
         Color:
-            rgb: 0,0,0
+            rgb: 0, 0, 0
         Rectangle:
             size: self.size
             pos: self.pos
     Button:
         size_hint: None, None
-        size: 100,25
-        pos: 0,0
+        size: 100, 25
+        pos: 0, 0
         text: 'Color Select'
         on_press: root.select_ColPckr(*args)
     Button:
         size_hint: None, None
-        size: 100,25
-        pos: 100,0
+        size: 100, 25
+        pos: 100, 0
+        text: 'Eraser'
+        on_release: app.root.selected_color = [0, 0, 0, 1]
+    Button:
+        size_hint: None, None
+        size: 100, 25
+        pos: 200, 0
         text: 'Clear'
         on_release: root.select_Clear()
     Button:
         size_hint: None, None
-        size: 100,25
-        pos: 200,0
+        size: 100, 25
+        pos: 300, 0
         text:'Export to .png'
         on_release: root.select_savePNG()
     Label:
@@ -62,7 +68,11 @@
         value: 2
     Label:
         id: penSizeValue
-        font_size: '12sp'
-        pos: 80,25
+        font_size: '11sp'
+        pos: 100, 25
         text: str(int(penSlider.value))
-        color: 1,1,1,1
+        color: 1, 1, 1, 1
+    TextInput:
+        id: fileName
+        pos: 300, 30
+        size: 100, 26

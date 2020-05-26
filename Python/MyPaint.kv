@@ -26,7 +26,7 @@
     fileName: fileName
     canvas:
         Color:
-            rgb: 0, 0, 0, 1
+            rgb: 1, 1, 1, 1
         Rectangle:
             size: self.size
             pos: self.pos
@@ -41,13 +41,13 @@
         size: 100, 25
         pos: 100, 0
         text: 'Eraser'
-        on_release: app.root.selected_color = [0, 0, 0, 1]
+        on_release: app.root.selected_color = [1, 1, 1, 1]
     Button:
         size_hint: None, None
         size: 100, 25
         pos: 200, 0
-        text: 'Clear'
-        on_release: root.select_Clear()
+        text: 'Sticky Note'
+        on_press: root.select_Clear()
     Button:
         size_hint: None, None
         size: 100, 25

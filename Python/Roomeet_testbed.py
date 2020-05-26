@@ -3,8 +3,10 @@ from kivy.uix.popup import Popup
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 from kivy.uix.colorpicker import ColorPicker
-from kivy.graphics import Color, Line
+from kivy.uix.scatter import Scatter
+from kivy.graphics import Color, Line, Rectangle
 from kivy.properties import ListProperty, ObjectProperty
+from random import random as r
 col = [0, 0, 1, 1]
 
 class SelectedColor(Widget):
@@ -16,7 +18,7 @@ class ColPckr(ColorPicker):
 class ColPopup(Popup):
     pass
 
-class MyPaintWidget(Widget):
+class MyPaintWidget(Scatter):
     penSlider = ObjectProperty(None)
     fileName = ObjectProperty(None)
     selected_color = ListProperty(col)
@@ -25,11 +27,11 @@ class MyPaintWidget(Widget):
         ColPopup().open()
     
     def select_Clear(self):
-        saved = self.children[:]
-        self.clear_widgets()
-        self.canvas.clear()
-        for widget in saved:
-            self.add_widget(widget)
+        with self.canvas:
+            Color(r(), r(), r(), 1)
+            rect = Rectangle(pos=(r(), r()),
+                             size=(int(self.penSlider.value) * 8,
+                                   int(self.penSlider.value) * 8))
 
     def on_touch_down(self, touch):
         if touch.x < 1000 and touch.y < 200:

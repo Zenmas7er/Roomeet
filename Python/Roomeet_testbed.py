@@ -2,8 +2,9 @@ from kivy.app import App
 from kivy.uix.popup import Popup
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button
+from kivy.uix.stencilview import StencilView
 from kivy.uix.colorpicker import ColorPicker
-from kivy.uix.scatter import Scatter
+from kivy.uix.behaviors import DragBehavior
 from kivy.graphics import Color, Line, Rectangle
 from kivy.properties import ListProperty, ObjectProperty
 from random import random as r
@@ -18,7 +19,7 @@ class ColPckr(ColorPicker):
 class ColPopup(Popup):
     pass
 
-class MyPaintWidget(Scatter):
+class MyPaintWidget(StencilView):
     penSlider = ObjectProperty(None)
     fileName = ObjectProperty(None)
     selected_color = ListProperty(col)
@@ -27,11 +28,13 @@ class MyPaintWidget(Scatter):
         ColPopup().open()
     
     def select_Clear(self):
-        with self.canvas:
+        with self.canvas,after:
             Color(r(), r(), r(), 1)
-            rect = Rectangle(pos=(r(), r()),
+            rect = Rectangle(pos=(r() * self.width + self.x,
+                                  r() * self.height + self.y),
                              size=(int(self.penSlider.value) * 8,
                                    int(self.penSlider.value) * 8))
+            '''rect.bind(Drag'''
 
     def on_touch_down(self, touch):
         if touch.x < 1000 and touch.y < 200:

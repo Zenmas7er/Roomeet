@@ -28,7 +28,7 @@ class MyPaintWidget(StencilView):
         ColPopup().open()
     
     def select_Clear(self):
-        with self.canvas,after:
+        with self.canvas.after:
             Color(r(), r(), r(), 1)
             rect = Rectangle(pos=(r() * self.width + self.x,
                                   r() * self.height + self.y),

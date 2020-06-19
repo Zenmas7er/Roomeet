@@ -32,4 +32,5 @@ Zenmaster
 
 ### Acknowledgements
 [Python Audio Color Picker Tutorial](http://pythonmobile.blogspot.com/2014/06/40-colorpicker.html)
+
 [GeekForGeek Kivy Tutorial](https://www.geeksforgeeks.org/kivy-tutorial/)
